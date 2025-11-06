@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Wormhole Auto Downloader",
+  "version": "1.1",
+  "description": "Auto-clicks the Download button on Wormhole after full load. Refreshes if not visible in 7s.",
+  "permissions": [
+    "tabs",
+    "https://wormhole.app/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://wormhole.app/*"],
+      "js": ["content_script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "wormhole.autodl@local",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}
